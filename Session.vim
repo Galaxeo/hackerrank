@@ -13,17 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 plusminus.py
+badd +27 plusminus.py
+badd +18 ~/code/hackerrank/minimax.py
 argglobal
 %argdel
-edit plusminus.py
+edit ~/code/hackerrank/minimax.py
 argglobal
-let s:l = 27 - ((26 * winheight(0) + 39) / 78)
+balt plusminus.py
+let s:l = 22 - ((21 * winheight(0) + 38) / 77)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 27
-normal! 0
+keepjumps 22
+normal! 06|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
